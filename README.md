@@ -1,6 +1,6 @@
 # express API starter
 
-A simple API server setup.
+A simple Node.js API server setup. Built with Express, MongoDB (mongoose) and Passport for authentication.
 
 
 ## Usage
