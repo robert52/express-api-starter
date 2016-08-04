@@ -17,9 +17,9 @@ module.exports.init = initExpress;
 function initExpress(app) {
   logger.debug('Initializing %s configs', 'Express');
 
-  let env = app.get('env');
-  let root = app.get('root');
-  let sessionOpts = {
+  const env = app.get('env');
+  const root = app.get('root');
+  const sessionOpts = {
     secret: config.session.secret,
     key: 'skey.sid',
     resave: config.session.resave,

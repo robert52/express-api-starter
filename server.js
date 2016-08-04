@@ -30,7 +30,7 @@ app.get('/api/status', (req, res, next) => {
 
 app.use((err, req, res, next) => {
   logger.error(err);
-  res.status(500).json(err);
+  res.status(err.statusCode || 500).json(err);
 });
 
 /**

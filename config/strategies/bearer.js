@@ -1,18 +1,18 @@
 'use strict';
 
-var passport = require('passport');
-var BearerStrategy = require('passport-http-bearer').Strategy;
-var mongoose = require('mongoose');
-var Token = mongoose.model('Token');
+const passport = require('passport');
+const BearerStrategy = require('passport-http-bearer').Strategy;
+const mongoose = require('mongoose');
+const Token = mongoose.model('Token');
 
 module.exports = buildBearerStrategy;
 
 function buildBearerStrategy() {
-  var bearer = new BearerStrategy(function(token, done) {
+  var bearer = new BearerStrategy((token, done) => {
     Token
-    .findOne({ value: token })
+    .findOne({ hash: token })
     .populate('user')
-    .exec(function(err, result) {
+    .exec((err, result) => {
       if (err) {
         return done(err);
       }

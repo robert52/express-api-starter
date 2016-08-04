@@ -42,13 +42,6 @@ function hashPassword(password, salt, callback) {
 
       salt = salt.toString('hex');
       generateDerivedKey(password, salt, ITERATIONS, len, DIGEST, callback);
-      // crypto.pbkdf2(password, salt, ITERATIONS, len, DIGEST, (err, derivedKey) => {
-      //   if (err) {
-      //     return callback(err);
-      //   }
-      //
-      //   callback(null, derivedKey.toString('hex'), salt);
-      // });
     });
   }
 }

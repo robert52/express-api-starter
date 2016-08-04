@@ -9,6 +9,9 @@ module.exports.init = initMongoose;
 function initMongoose(app) {
   logger.debug('Initializing %s configs', 'Mongoose');
 
+  // set mongoose promise New in Mongoose 4.1.0
+  mongoose.Promise = global.Promise;
+
   mongoose.connect(config.mongodb.uri);
 
   // If the Node process ends, cleanup existing connections
